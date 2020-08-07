@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MacAddressValidationComponent } from './mac-address-validation/mac-address-validation.component';
 import { MacInformationComponent } from './mac-information/mac-information.component';
+import {TabsetConfig, TabsModule} from 'ngx-bootstrap/tabs';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,12 @@ import { MacInformationComponent } from './mac-information/mac-information.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    TabsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [TabsetConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
