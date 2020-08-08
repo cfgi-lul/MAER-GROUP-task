@@ -1,7 +1,87 @@
-<div *ngFor="let mac of macAddresses">
-  <tabset>
-    <tab heading="Block Details" id="tab1">{{mac.vendorDetails | json}}</tab>
-    <tab heading="Vendor Details">{{mac.blockDetails | json}}</tab>
-    <tab heading="Mac Address Details">{{mac.macAddressDetails | json}}</tab>
-  </tabset>
-</div>
+<tabset>
+  <tab heading="Block Details" id="tab1">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">OUI</th>
+        <th scope="col">Is private</th>
+        <th scope="col">Company name</th>
+        <th scope="col">Company address</th>
+        <th scope="col">Country code</th>
+      </tr>
+      </thead>
+
+      <tbody *ngFor="let mac of macAddresses; index as i">
+      <tr>
+        <th>{{i + 1}}</th>
+        <td>{{mac.vendorDetails.oui}}</td>
+        <td>{{mac.vendorDetails.isPrivate}}</td>
+        <td>{{mac.vendorDetails.companyName}}</td>
+        <td>{{mac.vendorDetails.companyAddress}}</td>
+        <td>{{mac.vendorDetails.countryCode}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </tab>
+
+  <tab heading="Vendor Details">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">blockFound</th>
+        <th scope="col">borderLeft</th>
+        <th scope="col">borderRight</th>
+        <th scope="col">blockSize</th>
+        <th scope="col">assignmentBlockSize</th>
+        <th scope="col">dateCreated</th>
+        <th scope="col">dateUpdated</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let mac of macAddresses; index as i">
+      <tr>
+        <th>{{i + 1}}</th>
+        <td>{{mac.blockDetails.blockFound}}</td>
+        <td>{{mac.blockDetails.borderLeft}}</td>
+        <td>{{mac.blockDetails.borderRight}}</td>
+        <td>{{mac.blockDetails.blockSize}}</td>
+        <td>{{mac.blockDetails.assignmentBlockSize}}</td>
+        <td>{{mac.blockDetails.dateCreated}}</td>
+        <td>{{mac.blockDetails.dateUpdated}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </tab>
+
+  <tab heading="Mac Address Details">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">searchTerm</th>
+        <th scope="col">isValid</th>
+        <th scope="col">virtualMachine</th>
+        <th scope="col">applications</th>
+        <th scope="col">transmissionType</th>
+        <th scope="col">administrationType</th>
+        <th scope="col">wiresharkNotes</th>
+        <th scope="col">comment</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let mac of macAddresses; index as i">
+      <tr>
+        <th>{{i + 1}}</th>
+        <td>{{mac.macAddressDetails.searchTerm}}</td>
+        <td>{{mac.macAddressDetails.isValid}}</td>
+        <td>{{mac.macAddressDetails.virtualMachine}}</td>
+        <td>{{mac.macAddressDetails.applications}}</td>
+        <td>{{mac.macAddressDetails.transmissionType}}</td>
+        <td>{{mac.macAddressDetails.administrationType}}</td>
+        <td>{{mac.macAddressDetails.wiresharkNotes}}</td>
+        <td>{{mac.macAddressDetails.comment}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </tab>
+</tabset>
