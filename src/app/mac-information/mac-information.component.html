@@ -1,7 +1,7 @@
-<div>
+<div *ngFor="let mac of macAddresses">
   <tabset>
-    <tab heading="Basic title" id="tab1">Basic content</tab>
-    <tab heading="Basic Title 1">Basic content 1</tab>
-    <tab heading="Basic Title 2">Basic content 2</tab>
+    <tab heading="Block Details" id="tab1">{{mac.vendorDetails | json}}</tab>
+    <tab heading="Vendor Details">{{mac.blockDetails | json}}</tab>
+    <tab heading="Mac Address Details">{{mac.macAddressDetails | json}}</tab>
   </tabset>
 </div>
