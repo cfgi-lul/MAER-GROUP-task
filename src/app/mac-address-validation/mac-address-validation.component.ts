@@ -21,12 +21,12 @@ export class MacAddressValidationComponent {
   }
 
   macValidate(mac) {
-    return this.macRegex.test(mac) && this.macAddressInfo.filter(e => e.macAddressDetails.searchTerm === mac).length === 0;
+    this.macRegex.lastIndex = 0;
+    return this.macRegex.test(mac);
   }
 
   requestMacInfo(macAddress) {
-    if (this.macValidate(macAddress)) {
-      this.macValidate(macAddress);
+    if (this.macValidate(macAddress) && this.macAddressInfo.filter(e => e.macAddressDetails.searchTerm === macAddress).length === 0) {
       const data = this.http
         .get('https://api.macaddress.io/v1?apiKey=at_BULmXFODqtiqHIVJ6CERtQ11sBwzn&output=json&search=' + macAddress);
       data.subscribe(e => {
