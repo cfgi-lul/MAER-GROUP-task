@@ -5,13 +5,13 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class MacServiceService {
-  private behaviorSubject = new BehaviorSubject([]);
-  sharedMessage = this.behaviorSubject.asObservable();
+  private macAddressInfoArr = new BehaviorSubject([]);
+  observable = this.macAddressInfoArr.asObservable();
 
   constructor() {
   }
 
-  nextArray(addresses: Array<any>) {
-    this.behaviorSubject.next(addresses);
+  setMacAddressInfoArr(addresses: Array<any>) {
+    this.macAddressInfoArr.next(addresses);
   }
 }

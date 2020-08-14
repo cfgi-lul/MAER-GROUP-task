@@ -7,7 +7,7 @@ import { MacAddressValidationComponent } from './mac-address-validation/mac-addr
 import { MacInformationComponent } from './mac-information/mac-information.component';
 import {TabsetConfig, TabsModule} from 'ngx-bootstrap/tabs';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     TabsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TabsetConfig],
   bootstrap: [AppComponent]
